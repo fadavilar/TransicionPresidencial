@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Comparacion cargo por cargo del gabinete de Gustavo Petro frente al gabinete de Abelardo De la Espriella - Colombia, transicion presidencial 2026.">
-<title>Gabinete Petro vs. De la Espriella</title>
+<meta name="description" content="Gabinete, normatividad y presupuesto de salud: Colombia antes y despues de la transicion presidencial del 7 de agosto de 2026, Petro vs. De la Espriella.">
+<script>(function(){try{var t=localStorage.getItem("gabinete-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<title>Petro vs. De la Espriella</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
@@ -140,11 +141,18 @@
   .dot.petro{background:var(--petro);}
   .dot.esp{background:var(--esp);}
 
+  .pagebar{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:.6rem 1rem;
+    margin-bottom:2rem;
+  }
   nav.toc{
     display:flex;
     flex-wrap:wrap;
     gap:.6rem;
-    margin-bottom:2rem;
   }
   nav.toc a{
     font-family:'IBM Plex Mono', monospace;
@@ -160,6 +168,33 @@
     transition:background .15s ease, color .15s ease;
   }
   nav.toc a:hover{background:var(--surface-2); color:var(--ink);}
+
+  .ctrls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.5rem;
+  }
+  .ctrl-btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.74rem;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    background:var(--surface);
+    border:1px solid var(--line-strong);
+    border-radius:99px;
+    padding:.4rem .8rem;
+    margin:0;
+    cursor:pointer;
+    transition:background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .ctrl-btn:hover{background:var(--surface-2); color:var(--ink);}
+  .ctrl-btn:focus-visible{outline:2px solid var(--link); outline-offset:2px;}
+  .ctrl-btn[aria-pressed="true"]{border-color:var(--ink); color:var(--ink);}
+  @media (max-width:520px){
+    .pagebar{flex-direction:column; align-items:stretch;}
+    .ctrls{justify-content:flex-start;}
+  }
 
   .context{
     display:grid;
@@ -497,19 +532,26 @@
 
   <header class="masthead">
     <p class="eyebrow">Colombia · Transición presidencial 2026</p>
-    <h1>Gabinete Petro <span class="vs">vs.</span> Gabinete De la Espriella</h1>
-    <p class="dek">Comparación cargo por cargo de los 19 ministerios del Ejecutivo colombiano: quién los ocupaba al cierre del gobierno de Gustavo Petro (7 de agosto de 2026) frente a quién los ocupa en el gobierno de Abelardo de la Espriella, posesionado ese mismo día.</p>
+    <h1>Petro <span class="vs">vs.</span> De la Espriella</h1>
+    <p class="dek">Tres cortes de la transición presidencial del 7 de agosto de 2026: quién ocupa cada uno de los 19 ministerios, qué decretos, resoluciones y circulares cambiaron el sistema de salud antes y después del relevo, y cómo se movió el presupuesto de la Nación y del sector entre los dos gobiernos.</p>
     <div class="legend">
       <span class="swatch"><span class="dot petro"></span>Gustavo Petro · Pacto Histórico (2022–2026)</span>
       <span class="swatch"><span class="dot esp"></span>Abelardo De la Espriella (2026– )</span>
     </div>
   </header>
 
-  <nav class="toc">
-    <a href="#gabinete">↓ Gabinete completo (19 carteras)</a>
-    <a href="#salud">↓ Normatividad y presupuesto de salud</a>
-    <a href="#fuentes">↓ Fuentes</a>
-  </nav>
+  <div class="pagebar">
+    <nav class="toc">
+      <a href="#gabinete">↓ Gabinete (19 carteras)</a>
+      <a href="#salud">↓ Normatividad y presupuesto de salud</a>
+      <a href="#fuentes">↓ Fuentes</a>
+    </nav>
+    <div class="ctrls">
+      <button type="button" id="themeToggle" class="ctrl-btn" aria-pressed="false">Modo oscuro</button>
+      <button type="button" id="expandAll" class="ctrl-btn">Expandir todo</button>
+      <button type="button" id="collapseAll" class="ctrl-btn">Colapsar todo</button>
+    </div>
+  </div>
 
   <div class="context">
     <div>
@@ -841,5 +883,58 @@
   </footer>
 
 </div>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var KEY = 'gabinete-theme';
+
+  function systemPrefersDark(){
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function effectiveTheme(){
+    var attr = root.getAttribute('data-theme');
+    if(attr === 'light' || attr === 'dark') return attr;
+    return systemPrefersDark() ? 'dark' : 'light';
+  }
+  function setTheme(theme){
+    if(theme === 'light' || theme === 'dark'){
+      root.setAttribute('data-theme', theme);
+    } else {
+      root.removeAttribute('data-theme');
+    }
+    try { localStorage.setItem(KEY, theme); } catch(e){}
+  }
+  function updateToggleLabel(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var dark = effectiveTheme() === 'dark';
+    btn.textContent = dark ? 'Modo claro' : 'Modo oscuro';
+    btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+  }
+
+  var themeBtn = document.getElementById('themeToggle');
+  if(themeBtn){
+    themeBtn.addEventListener('click', function(){
+      setTheme(effectiveTheme() === 'dark' ? 'light' : 'dark');
+      updateToggleLabel();
+    });
+  }
+  updateToggleLabel();
+
+  var expandBtn = document.getElementById('expandAll');
+  var collapseBtn = document.getElementById('collapseAll');
+  if(expandBtn){
+    expandBtn.addEventListener('click', function(){
+      document.querySelectorAll('.wrap details').forEach(function(d){ d.open = true; });
+    });
+  }
+  if(collapseBtn){
+    collapseBtn.addEventListener('click', function(){
+      document.querySelectorAll('.wrap details').forEach(function(d){ d.open = false; });
+    });
+  }
+})();
+</script>
 </body>
 </html>
