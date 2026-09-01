@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Comparacion cargo por cargo del gabinete de Gustavo Petro frente al gabinete de Abelardo De la Espriella - Colombia, transicion presidencial 2026.">
+<title>Gabinete Petro vs. De la Espriella</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --bg:#F6F2EA;
+    --surface:#FFFFFF;
+    --surface-2:#EEE8DA;
+    --ink:#211E19;
+    --ink-soft:#5C5648;
+    --ink-faint:#8A8271;
+    --line:#DBD2BE;
+    --line-strong:#C7BB9F;
+    --petro:#9B3049;
+    --petro-soft:#F2DCE2;
+    --petro-ink:#6E1F33;
+    --esp:#1E4870;
+    --esp-soft:#DCE6F0;
+    --esp-ink:#123152;
+    --status:#8A6425;
+    --status-soft:#F1E3C4;
+    --link:#1E4870;
+    --shadow: 0 1px 2px rgba(33,30,25,.06), 0 8px 24px -12px rgba(33,30,25,.18);
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#17130F;
+      --surface:#1F1A15;
+      --surface-2:#28221B;
+      --ink:#F2ECE0;
+      --ink-soft:#C7BCA3;
+      --ink-faint:#8E846E;
+      --line:#3B342A;
+      --line-strong:#4C4335;
+      --petro:#E4899F;
+      --petro-soft:#3A222B;
+      --petro-ink:#F3C6D2;
+      --esp:#86B4E0;
+      --esp-soft:#1C2C3D;
+      --esp-ink:#C6DEF3;
+      --status:#DDB56C;
+      --status-soft:#3A2F19;
+      --link:#86B4E0;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#17130F;
+    --surface:#1F1A15;
+    --surface-2:#28221B;
+    --ink:#F2ECE0;
+    --ink-soft:#C7BCA3;
+    --ink-faint:#8E846E;
+    --line:#3B342A;
+    --line-strong:#4C4335;
+    --petro:#E4899F;
+    --petro-soft:#3A222B;
+    --petro-ink:#F3C6D2;
+    --esp:#86B4E0;
+    --esp-soft:#1C2C3D;
+    --esp-ink:#C6DEF3;
+    --status:#DDB56C;
+    --status-soft:#3A2F19;
+    --link:#86B4E0;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    line-height:1.5;
+  }
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:2.5rem 1.5rem 5rem;
+  }
+
+  header.masthead{
+    border-bottom:2px solid var(--ink);
+    padding-bottom:1.5rem;
+    margin-bottom:1.4rem;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    font-size:.72rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin:0 0 .6rem;
+  }
+  h1{
+    font-family:'Source Serif 4', Georgia, serif;
+    font-weight:700;
+    font-size:clamp(1.7rem, 1.2rem + 2vw, 2.6rem);
+    line-height:1.12;
+    margin:0 0 .5rem;
+    text-wrap:balance;
+  }
+  h1 .vs{
+    color:var(--ink-faint);
+    font-weight:400;
+    font-style:italic;
+  }
+  .dek{
+    font-size:1.02rem;
+    color:var(--ink-soft);
+    max-width:62ch;
+    margin:.4rem 0 0;
+  }
+
+  .legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.6rem 1.4rem;
+    margin-top:1.3rem;
+    font-size:.86rem;
+    color:var(--ink-soft);
+  }
+  .legend .swatch{
+    display:inline-flex;
+    align-items:center;
+    gap:.45rem;
+  }
+  .legend .dot{
+    width:.68rem;height:.68rem;border-radius:50%;
+    flex:none;
+  }
+  .dot.petro{background:var(--petro);}
+  .dot.esp{background:var(--esp);}
+
+  nav.toc{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.6rem;
+    margin-bottom:2rem;
+  }
+  nav.toc a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.74rem;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    text-decoration:none;
+    padding:.4rem .8rem;
+    border:1px solid var(--line-strong);
+    border-radius:99px;
+    background:var(--surface);
+    transition:background .15s ease, color .15s ease;
+  }
+  nav.toc a:hover{background:var(--surface-2); color:var(--ink);}
+
+  .context{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:2.4rem;
+    box-shadow:var(--shadow);
+  }
+  .context div{
+    background:var(--surface);
+    padding:1rem 1.2rem;
+  }
+  .context .k{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.68rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin-bottom:.35rem;
+  }
+  .context .v{
+    font-size:.95rem;
+    color:var(--ink);
+  }
+  .context .v a{color:var(--link);}
+
+  h2.section-title{
+    font-family:'Source Serif 4', serif;
+    font-size:1.4rem;
+    font-weight:700;
+    margin:0 0 .3rem;
+    scroll-margin-top:1.5rem;
+  }
+  p.section-dek{
+    font-size:.92rem;
+    color:var(--ink-soft);
+    max-width:66ch;
+    margin:0 0 1.2rem;
+  }
+
+  /* ---- collapsible thematic groups (main table) ---- */
+  .group{
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:var(--surface);
+    box-shadow:var(--shadow);
+    margin-bottom:.9rem;
+    overflow:hidden;
+  }
+  .group summary{
+    list-style:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    padding:.85rem 1.1rem;
+    background:var(--surface-2);
+    -webkit-tap-highlight-color:transparent;
+  }
+  .group summary::-webkit-details-marker{display:none;}
+  .summary-left{display:flex; align-items:center; gap:.65rem; min-width:0;}
+  .chevron{
+    width:0;height:0;flex:none;
+    border-left:6px solid var(--ink-faint);
+    border-top:5px solid transparent;
+    border-bottom:5px solid transparent;
+    transition:transform .15s ease;
+  }
+  details[open] > summary .chevron{transform:rotate(90deg);}
+  .group-title{
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    font-size:1.02rem;
+    color:var(--ink);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .group-count{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.68rem;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    white-space:nowrap;
+    flex:none;
+  }
+
+  .table-scroll{overflow-x:auto;}
+  .group .table-scroll{border-top:1px solid var(--line);}
+  table{
+    border-collapse:collapse;
+    width:100%;
+    min-width:720px;
+  }
+  thead th{
+    position:sticky;
+    top:0;
+    background:var(--surface);
+    text-align:left;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.7rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:.75rem 1rem;
+    border-bottom:2px solid var(--ink);
+    z-index:1;
+  }
+  thead th.cargo-h{color:var(--ink-faint); width:180px;}
+  thead th.petro-h{color:var(--petro-ink); border-bottom-color:var(--petro);}
+  thead th.esp-h{color:var(--esp-ink); border-bottom-color:var(--esp);}
+  thead th .who{
+    display:block;
+    font-family:'Source Serif 4', serif;
+    text-transform:none;
+    letter-spacing:0;
+    font-size:.94rem;
+    font-weight:600;
+    color:var(--ink);
+    margin-top:.1rem;
+  }
+
+  tbody tr{border-bottom:1px solid var(--line);}
+  tbody tr:last-child{border-bottom:none;}
+  tbody tr:nth-child(even){background:var(--surface-2);}
+
+  td{
+    padding:.8rem 1rem;
+    vertical-align:top;
+    font-size:.92rem;
+  }
+  td.cargo{
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    font-size:.97rem;
+    color:var(--ink);
+  }
+  td.cargo .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:400;
+    font-size:.7rem;
+    color:var(--ink-faint);
+    display:block;
+    margin-bottom:.15rem;
+  }
+  td.person a{
+    color:var(--link);
+    font-weight:600;
+    text-decoration:none;
+    border-bottom:1px solid currentColor;
+  }
+  td.person a:hover{opacity:.75;}
+  td.person .role{
+    display:block;
+    color:var(--ink-soft);
+    font-size:.83rem;
+    margin-top:.2rem;
+  }
+  .badge{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.66rem;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    padding:.14rem .45rem;
+    border-radius:99px;
+    background:var(--status-soft);
+    color:var(--status);
+    margin-left:.4rem;
+    vertical-align:middle;
+  }
+  sup.fn{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--ink-faint);
+    margin-left:.15rem;
+  }
+  sup.fn a{color:inherit;}
+
+  section.notes{margin-top:2rem;}
+
+  /* generic collapsible "note" panel (Notas / Fuentes) */
+  details.panel{
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:var(--surface);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  details.panel summary{
+    list-style:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:.65rem;
+    padding:.9rem 1.2rem;
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    font-size:1.1rem;
+  }
+  details.panel summary::-webkit-details-marker{display:none;}
+  details.panel .panel-body{
+    padding:0 1.2rem 1.2rem;
+    border-top:1px solid var(--line);
+    padding-top:1rem;
+  }
+
+  ol.footnotes{
+    padding-left:1.3rem;
+    font-size:.86rem;
+    color:var(--ink-soft);
+    margin:1rem 0 0;
+  }
+  ol.footnotes li{margin-bottom:.6rem;}
+  ol.footnotes a{color:var(--link);}
+  ol.footnotes span.tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.7rem;
+    color:var(--ink-faint);
+  }
+
+  .prose{
+    font-size:.92rem;
+    color:var(--ink-soft);
+    max-width:70ch;
+  }
+  .prose p{margin:0 0 .9rem;}
+  .prose p:last-child{margin-bottom:0;}
+  .prose strong{color:var(--ink);}
+  .prose a{color:var(--link);}
+
+  .sources{
+    columns:2;
+    column-gap:2rem;
+    font-size:.78rem;
+    color:var(--ink-soft);
+    margin:0;
+  }
+  .sources li{
+    break-inside:avoid;
+    margin-bottom:.5rem;
+    list-style:none;
+  }
+  .sources a{color:var(--link); word-break:break-word;}
+  .sources-group-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.68rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    display:block;
+    margin:1rem 0 .5rem;
+    break-after:avoid;
+    break-inside:avoid;
+  }
+  .sources-group-label:first-child{margin-top:0;}
+
+  /* ---- health section: 2x2 accordion grid ---- */
+  .health-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:.9rem;
+  }
+  @media (max-width:720px){
+    .health-grid{grid-template-columns:1fr;}
+  }
+  details.health-card{
+    border:1px solid var(--line);
+    border-left:4px solid var(--line-strong);
+    border-radius:10px;
+    background:var(--surface);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  details.health-card.petro{border-left-color:var(--petro);}
+  details.health-card.esp{border-left-color:var(--esp);}
+  details.health-card summary{
+    list-style:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:.65rem;
+    padding:.9rem 1.1rem;
+  }
+  details.health-card summary::-webkit-details-marker{display:none;}
+  .health-kicker{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.66rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+  .health-who{
+    display:block;
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    font-size:.98rem;
+    color:var(--ink);
+    margin-top:.1rem;
+  }
+  details.health-card .health-body{
+    padding:0 1.1rem 1.1rem;
+    border-top:1px solid var(--line);
+    padding-top:.9rem;
+    font-size:.87rem;
+    color:var(--ink-soft);
+  }
+  details.health-card .health-body p{margin:0 0 .75rem;}
+  details.health-card .health-body p:last-child{margin-bottom:0;}
+  details.health-card .health-body a{color:var(--link);}
+  details.health-card .health-body strong{color:var(--ink);}
+
+  footer.page{
+    margin-top:3rem;
+    padding-top:1.2rem;
+    border-top:1px solid var(--line);
+    font-size:.78rem;
+    color:var(--ink-faint);
+  }
+
+  @media (max-width:640px){
+    .wrap{padding:1.6rem 1rem 4rem;}
+    .sources{columns:1;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Colombia · Transición presidencial 2026</p>
+    <h1>Gabinete Petro <span class="vs">vs.</span> Gabinete De la Espriella</h1>
+    <p class="dek">Comparación cargo por cargo de los 19 ministerios del Ejecutivo colombiano: quién los ocupaba al cierre del gobierno de Gustavo Petro (7 de agosto de 2026) frente a quién los ocupa en el gobierno de Abelardo de la Espriella, posesionado ese mismo día.</p>
+    <div class="legend">
+      <span class="swatch"><span class="dot petro"></span>Gustavo Petro · Pacto Histórico (2022–2026)</span>
+      <span class="swatch"><span class="dot esp"></span>Abelardo De la Espriella (2026– )</span>
+    </div>
+  </header>
+
+  <nav class="toc">
+    <a href="#gabinete">↓ Gabinete completo (19 carteras)</a>
+    <a href="#salud">↓ Normatividad y presupuesto de salud</a>
+    <a href="#fuentes">↓ Fuentes</a>
+  </nav>
+
+  <div class="context">
+    <div>
+      <div class="k">Elección</div>
+      <div class="v">De la Espriella derrotó a Iván Cepeda (candidato del petrismo) en segunda vuelta el 21 de junio de 2026.</div>
+    </div>
+    <div>
+      <div class="k">Transición</div>
+      <div class="v">Posesión presidencial y de los 18 ministros del nuevo gabinete: 7 de agosto de 2026, en Cali.</div>
+    </div>
+    <div>
+      <div class="k">Rotación bajo Petro</div>
+      <div class="v">65 ministros y 140 viceministros pasaron por el gabinete en 19 carteras a lo largo de los 4 años de gobierno.</div>
+    </div>
+    <div>
+      <div class="k">Corte de esta página</div>
+      <div class="v">1 de septiembre de 2026 — semanas 1–4 del gobierno De la Espriella.</div>
+    </div>
+  </div>
+
+  <h2 class="section-title" id="gabinete">Gabinete completo</h2>
+  <p class="section-dek">Agrupado por área para que puedas abrir solo lo que te interesa. Cada grupo trae su propia cabecera con los dos gobiernos en columnas.</p>
+
+  <details class="group" open>
+    <summary>
+      <span class="summary-left"><span class="chevron"></span><span class="group-title">Gobierno y seguridad</span></span>
+      <span class="group-count">4 carteras</span>
+    </summary>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th class="cargo-h">Cartera</th>
+            <th class="petro-h">Gobierno Petro<span class="who">Último titular (jul–ago 2026)</span></th>
+            <th class="esp-h">Gobierno De la Espriella<span class="who">Titular designado (ago 2026)</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cargo"><span class="num">01</span>Interior</td>
+            <td class="person"><a href="https://en.wikipedia.org/wiki/Armando_Benedetti" target="_blank" rel="noopener">Armando Benedetti</a><span class="role">Abogado, senador y ministro; entregó la cartera en el empalme.</span></td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/06/26/rodrigo-lara-restrepo-fue-elegido-como-ministro-del-interior-en-el-gobierno-de-abelardo-de-la-espriella/" target="_blank" rel="noopener">Rodrigo Lara Restrepo</a><span class="role">Abogado, exrepresentante y exsenador.</span></td>
+          </tr>
+          <tr>
+            <td class="cargo"><span class="num">03</span>Justicia y del Derecho</td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/07/09/cielo-rusinque-sera-la-ministra-encargada-de-justicia-tras-la-renuncia-de-jorge-ivan-cuervo-confirmo-la-presidencia/" target="_blank" rel="noopener">Cielo Rusinque</a><span class="badge">Encargada</span><span class="role">Asumió tras la renuncia de Jorge Iván Cuervo (jul. 2026).</span></td>
+            <td class="person"><a href="https://en.wikipedia.org/wiki/Iv%C3%A1n_Cancino" target="_blank" rel="noopener">Iván Cancino</a><span class="role">Abogado penalista, docente universitario.</span></td>
+          </tr>
+          <tr>
+            <td class="cargo"><span class="num">04</span>Defensa Nacional</td>
+            <td class="person"><a href="https://en.wikipedia.org/wiki/Pedro_Arnulfo_S%C3%A1nchez" target="_blank" rel="noopener">Pedro Sánchez</a><span class="role">General en actividad; primer militar activo en el cargo en 30 años.</span></td>
+            <td class="person"><a href="https://en.wikipedia.org/wiki/Jorge_Eduardo_Mora" target="_blank" rel="noopener">Jorge Eduardo Mora López</a><span class="role">Mayor general en retiro, 36 años en las Fuerzas Militares.</span></td>
+          </tr>
+          <tr>
+            <td class="cargo"><span class="num">05</span>Relaciones Exteriores</td>
+            <td class="person"><a href="https://en.wikipedia.org/wiki/Rosa_Yolanda_Villavicencio" target="_blank" rel="noopener">Rosa Yolanda Villavicencio</a><span class="badge">Encargada</span><span class="role">Cuarta canciller del gobierno; en el cargo desde jul. 2025.</span></td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/08/03/asi-esta-conformado-el-gabinete-de-abelardo-de-la-espriella-quienes-son-los-18-ministros-y-sus-perfiles/" target="_blank" rel="noopener">Omar Bula Escobar</a><span class="role">Administrador de empresas, diplomático con experiencia en la ONU.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details class="group" open>
+    <summary>
+      <span class="summary-left"><span class="chevron"></span><span class="group-title">Económicos y sectoriales</span></span>
+      <span class="group-count">7 carteras</span>
+    </summary>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th class="cargo-h">Cartera</th>
+            <th class="petro-h">Gobierno Petro<span class="who">Último titular (jul–ago 2026)</span></th>
+            <th class="esp-h">Gobierno De la Espriella<span class="who">Titular designado (ago 2026)</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cargo"><span class="num">02</span>Hacienda y Crédito Público</td>
+            <td class="person"><a href="https://en.wikipedia.org/wiki/Diego_Guevara_(politician)" target="_blank" rel="noopener">Diego Guevara Castañeda</a><span class="role">Economista, exviceministro; en el cargo desde dic. 2024.</span></td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/08/03/asi-esta-conformado-el-gabinete-de-abelardo-de-la-espriella-quienes-son-los-18-ministros-y-sus-perfiles/" target="_blank" rel="noopener">Miguel Gómez Martínez</a><span class="role">Economista, expresidente de Bancóldex y Fasecolda.</span></td>
+          </tr>
+          <tr>
+            <td class="cargo"><span class="num">06</span>Agricultura y Desarrollo Rural</td>
+            <td class="person">Sin confirmar<sup class="fn"><a href="#fn-agro">*</a></sup><span class="role">Martha Carvajalino renunció el 1 de julio de 2026, a un mes del cierre del gobierno.</span></td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/08/03/asi-esta-conformado-el-gabinete-de-abelardo-de-la-espriella-quienes-son-los-18-ministros-y-sus-perfiles/" target="_blank" rel="noopener">Indalecio Dangond Baquero</a><span class="role">Administrador de empresas, experto en financiamiento agropecuario.</span></td>
+          </tr>
+          <tr>
+            <td class="cargo"><span class="num">09</span>Minas y Energía</td>
+            <td class="person"><a href="https://en.wikipedia.org/wiki/Edwin_Palma" target="_blank" rel="noopener">Edwin Palma Montenegro</a><span class="role">Ingeniero; también encargado de Trabajo y Vivienda.</span></td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/08/03/asi-esta-conformado-el-gabinete-de-abelardo-de-la-espriella-quienes-son-los-18-ministros-y-sus-perfiles/" target="_blank" rel="noopener">María Nohemí Arboleda Arango</a><span class="role">Ingeniera electricista, primera mujer presidenta de XM.</span></td>
+          </tr>
+          <tr>
+            <td class="cargo"><span class="num">10</span>Comercio, Industria y Turismo</td>
+            <td class="person"><a href="https://en.wikipedia.org/wiki/Diana_Morales" target="_blank" rel="noopener">Diana Marcela Morales Rojas</a><span class="role">En el cargo desde mayo de 2025.</span></td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/08/03/asi-esta-conformado-el-gabinete-de-abelardo-de-la-espriella-quienes-son-los-18-ministros-y-sus-perfiles/" target="_blank" rel="noopener">Mauricio Gómez Amín</a><span class="role">Abogado, exsenador, especialista en derecho público.</span></td>
+          </tr>
+          <tr>
+            <td class="cargo"><span class="num">08</span>Trabajo</td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/08/01/petro-nombro-a-edwin-palma-actual-ministro-de-minas-como-ministro-del-trabajo-y-de-vivienda-tres-ministerios-a-cargo-de-una-misma-persona/" target="_blank" rel="noopener">Edwin Palma Montenegro</a><span class="badge">Encargado</span><span class="role">Sumó Trabajo el 1 de ago. 2026 a Minas y Vivienda.<sup class="fn"><a href="#fn-trabajo">†</a></sup></span></td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/08/03/asi-esta-conformado-el-gabinete-de-abelardo-de-la-espriella-quienes-son-los-18-ministros-y-sus-perfiles/" target="_blank" rel="noopener">Natalia López Fuentes</a><span class="role">Encargada de impulsar empleo formal y diálogo laboral.</span></td>
+          </tr>
+          <tr>
+            <td class="cargo"><span class="num">17</span>Transporte</td>
+            <td class="person"><a href="https://es.wikipedia.org/wiki/Mar%C3%ADa_Fernanda_Rojas_Mantilla" target="_blank" rel="noopener">María Fernanda Rojas Mantilla</a><span class="role">En el cargo desde 2025.</span></td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/07/07/elsa-noguera-esta-es-la-trayectoria-de-la-economista-que-llegara-al-ministerio-de-transporte/" target="_blank" rel="noopener">Elsa Noguera</a><span class="role">Economista, primera alcaldesa de Barranquilla, exgobernadora del Atlántico.</span></td>
+          </tr>
+          <tr>
+            <td class="cargo"><span class="num">14</span>Tecnologías de la Información y las Comunicaciones</td>
+            <td class="person"><a href="https://en.wikipedia.org/wiki/Carina_Murcia" target="_blank" rel="noopener">Carina Murcia Yela</a><span class="role">Cuarta ministra TIC del gobierno; asumió en sept. 2025.</span></td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/08/03/asi-esta-conformado-el-gabinete-de-abelardo-de-la-espriella-quienes-son-los-18-ministros-y-sus-perfiles/" target="_blank" rel="noopener">Alexandra Falla Zerrate</a><span class="role">Comunicadora social, magíster en ciencias políticas.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details class="group" open>
+    <summary>
+      <span class="summary-left"><span class="chevron"></span><span class="group-title">Social</span></span>
+      <span class="group-count">5 carteras</span>
+    </summary>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th class="cargo-h">Cartera</th>
+            <th class="petro-h">Gobierno Petro<span class="who">Último titular (jul–ago 2026)</span></th>
+            <th class="esp-h">Gobierno De la Espriella<span class="who">Titular designado (ago 2026)</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cargo"><span class="num">07</span>Salud y Protección Social</td>
+            <td class="person"><a href="https://en.wikipedia.org/wiki/Guillermo_Alfonso_Jaramillo" target="_blank" rel="noopener">Guillermo Alfonso Jaramillo</a><span class="role">Médico, exsecretario de Salud de Bogotá. Ver sección de salud ↓</span></td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/08/03/asi-esta-conformado-el-gabinete-de-abelardo-de-la-espriella-quienes-son-los-18-ministros-y-sus-perfiles/" target="_blank" rel="noopener">Ana María Vesga Gaviria</a><span class="role">Abogada, magíster en economía de la salud. Ver sección de salud ↓</span></td>
+          </tr>
+          <tr>
+            <td class="cargo"><span class="num">11</span>Educación Nacional</td>
+            <td class="person"><a href="https://en.wikipedia.org/wiki/Daniel_Rojas_Medell%C3%ADn" target="_blank" rel="noopener">Daniel Rojas Medellín</a><span class="role">Exdirector de la SAE; sucedió a Aurora Vergara.</span></td>
+            <td class="person"><a href="https://www.elespectador.com/educacion/quien-es-viviane-morales-la-ministra-de-educacion-que-nombro-abelardo-de-la-espriella/" target="_blank" rel="noopener">Viviane Morales</a><span class="role">Abogada, exfiscal general, primera mujer al frente de la Fiscalía.</span></td>
+          </tr>
+          <tr>
+            <td class="cargo"><span class="num">13</span>Vivienda, Ciudad y Territorio</td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/08/01/petro-nombro-a-edwin-palma-actual-ministro-de-minas-como-ministro-del-trabajo-y-de-vivienda-tres-ministerios-a-cargo-de-una-misma-persona/" target="_blank" rel="noopener">Edwin Palma Montenegro</a><span class="badge">Encargado</span><span class="role">Tercera cartera simultánea desde el 1 de ago. 2026.<sup class="fn"><a href="#fn-trabajo">†</a></sup></span></td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/08/03/asi-esta-conformado-el-gabinete-de-abelardo-de-la-espriella-quienes-son-los-18-ministros-y-sus-perfiles/" target="_blank" rel="noopener">Jaime Andrés Beltrán</a><span class="role">Comunicador social, exalcalde de Bucaramanga.</span></td>
+          </tr>
+          <tr>
+            <td class="cargo"><span class="num">18</span>Deporte</td>
+            <td class="person"><a href="https://www.eltiempo.com/amp/politica/gobierno/patricia-duque-cruz-renuncia-al-ministerio-del-deporte-oscar-albeiro-figueroa-asume-el-cargo-de-forma-interina-3569091" target="_blank" rel="noopener">Óscar Albeiro Figueroa</a><span class="badge">Encargado</span><span class="role">Interino tras la renuncia de Patricia Duque (jul. 2026).</span></td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/08/03/asi-esta-conformado-el-gabinete-de-abelardo-de-la-espriella-quienes-son-los-18-ministros-y-sus-perfiles/" target="_blank" rel="noopener">Juliana Gutiérrez</a><span class="role">Administradora de empresas, magíster en riesgos.</span></td>
+          </tr>
+          <tr>
+            <td class="cargo"><span class="num">19</span>Igualdad y Equidad</td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2025/09/17/petro-acepto-la-renuncia-de-juan-carlos-florian-como-ministro-de-igualdad-angie-lizeth-rodriguez-fajardo-fue-encargada/" target="_blank" rel="noopener">Angie Lizeth Rodríguez Fajardo</a><span class="badge">Encargada</span><span class="role">Exdirectora del Dapre; asumió tras la salida de Juan Carlos Florián.</span></td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/08/14/abelardo-de-la-espriella-designo-al-pastor-cristiano-john-milton-rodriguez-para-liquidar-el-ministerio-de-la-igualdad/" target="_blank" rel="noopener">John Milton Rodríguez</a><span class="badge">En liquidación</span><span class="role">No hay ministro: fue designado para liquidar la cartera, creada por Petro en 2023.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details class="group" open>
+    <summary>
+      <span class="summary-left"><span class="chevron"></span><span class="group-title">Cultura, ciencia y ambiente</span></span>
+      <span class="group-count">3 carteras</span>
+    </summary>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th class="cargo-h">Cartera</th>
+            <th class="petro-h">Gobierno Petro<span class="who">Último titular (jul–ago 2026)</span></th>
+            <th class="esp-h">Gobierno De la Espriella<span class="who">Titular designado (ago 2026)</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cargo"><span class="num">12</span>Ambiente y Desarrollo Sostenible</td>
+            <td class="person"><a href="https://en.wikipedia.org/wiki/Irene_V%C3%A9lez_Torres" target="_blank" rel="noopener">Irene Vélez Torres</a><span class="badge">Encargada</span><span class="role">Regresó al gabinete tras la renuncia de Lena Estrada (ago. 2025).</span></td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/08/03/asi-esta-conformado-el-gabinete-de-abelardo-de-la-espriella-quienes-son-los-18-ministros-y-sus-perfiles/" target="_blank" rel="noopener">Fabio Arjona Hincapié</a><span class="role">Biólogo marino, dos décadas en conservación ambiental.</span></td>
+          </tr>
+          <tr>
+            <td class="cargo"><span class="num">15</span>Culturas, las Artes y los Saberes</td>
+            <td class="person"><a href="https://en.wikipedia.org/wiki/Yannai_Kadamani" target="_blank" rel="noopener">Yannai Kadamani Fonrodona</a><span class="role">Encargada de fortalecer patrimonio y memoria histórica.</span></td>
+            <td class="person"><a href="https://www.bloomberglinea.com/latinoamerica/colombia/hoja-de-vida-y-quien-es-paola-holguin-ministra-de-cultura-de-abelardo-de-la-espriella/" target="_blank" rel="noopener">Paola Holguín Moreno</a><span class="role">Comunicadora social, periodista, exsenadora.</span></td>
+          </tr>
+          <tr>
+            <td class="cargo"><span class="num">16</span>Ciencia, Tecnología e Innovación</td>
+            <td class="person"><a href="https://en.wikipedia.org/wiki/Yesenia_Olaya" target="_blank" rel="noopener">Yesenia Olaya Requene</a><span class="role">Ingeniera; en el cargo desde 2023.</span></td>
+            <td class="person"><a href="https://www.infobae.com/colombia/2026/08/03/asi-esta-conformado-el-gabinete-de-abelardo-de-la-espriella-quienes-son-los-18-ministros-y-sus-perfiles/" target="_blank" rel="noopener">Claudia Benavides Salazar</a><span class="role">Ingeniera industrial, doctora en competitividad e innovación.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <section class="notes">
+    <details class="panel">
+      <summary><span class="chevron"></span>Notas sobre esta comparación</summary>
+      <div class="panel-body">
+        <div class="prose">
+          <p><strong>Por qué hay tantos cargos "encargados" del lado Petro.</strong> El gobierno de Gustavo Petro cerró su mandato con un historial de 65 ministros y 140 viceministros en sus 19 carteras a lo largo de cuatro años —un cambio de jefe de cartera cada 11 a 21 días en promedio, según distintos conteos—. En las últimas semanas antes de la entrega del poder (7 de agosto de 2026) varias carteras quedaron en manos de ministros encargados o con un mismo funcionario cubriendo más de una cartera a la vez, como Edwin Palma Montenegro en Minas, Trabajo y Vivienda simultáneamente.</p>
+          <p><strong>Alcance.</strong> La tabla cubre los 19 ministerios del gabinete central. No incluye cargos de nombramiento presidencial fuera del gabinete ministerial (Dapre, DNP, UNGRD, Prosperidad Social, superintendencias, embajadas, etc.); si te interesa esa capa adicional de nombramientos, dímelo y la agrego.</p>
+          <p><strong>Estabilidad de los datos.</strong> El lado De la Espriella refleja el gabinete recién posesionado (agosto de 2026) y puede cambiar; el lado Petro es un cierre histórico ya fijo, pero reconstruido a partir de reportes de prensa de julio–agosto de 2026 dada la ausencia de un listado oficial único y consolidado para esas últimas semanas.</p>
+        </div>
+        <ol class="footnotes">
+          <li id="fn-agro"><span class="tag">*</span> Martha Carvajalino renunció al Ministerio de Agricultura el 1 de julio de 2026. Las fuentes consultadas no identifican con certeza quién quedó como titular o encargado hasta el 7 de agosto. Ver <a href="https://www.infobae.com/colombia/2026/07/01/martha-carvajalino-renuncio-al-ministerio-de-agricultura-a-poco-mas-de-un-mes-del-final-del-gobierno-petro-este-es-el-motivo/" target="_blank" rel="noopener">Infobae, 1 jul. 2026</a>.</li>
+          <li id="fn-trabajo"><span class="tag">†</span> Antes del 1 de agosto de 2026, Trabajo estuvo a cargo de Antonio Sanguino y Vivienda tuvo una ministra encargada distinta (Helga Rivas, designada a mediados de julio). El 1 de agosto Petro concentró Minas, Trabajo y Vivienda en Edwin Palma Montenegro para lo que restaba del gobierno. Ver <a href="https://www.infobae.com/colombia/2026/08/01/petro-nombro-a-edwin-palma-actual-ministro-de-minas-como-ministro-del-trabajo-y-de-vivienda-tres-ministerios-a-cargo-de-una-misma-persona/" target="_blank" rel="noopener">Infobae, 1 ago. 2026</a>.</li>
+        </ol>
+      </div>
+    </details>
+  </section>
+
+  <h2 class="section-title" id="salud">Normatividad y presupuesto de salud</h2>
+  <p class="section-dek">Lo que cada gobierno hizo (o intentó hacer) con la ley y con la plata en el sector más golpeado del cuatrienio 2022-2026. Abre cada tarjeta para ver el detalle.</p>
+
+  <div class="health-grid">
+
+    <details class="health-card petro" open>
+      <summary>
+        <span class="chevron"></span>
+        <span><span class="health-kicker">Normatividad</span><span class="health-who">Gobierno Petro (2022–2026)</span></span>
+      </summary>
+      <div class="health-body">
+        <p>El gobierno radicó una reforma estructural a la salud el <strong>13 de febrero de 2023</strong>, que convertía a las EPS en "gestoras de salud" y buscaba giro directo a hospitales. Fue aprobada en la Cámara de Representantes, pero el <a href="https://www.elpais.com.co/colombia/reforma-a-la-salud-se-hundio-en-el-senado-nueva-derrota-del-gobierno-petro-0345.html" target="_blank" rel="noopener">Senado la archivó por primera vez el 3 de abril de 2024</a> (Comisión Séptima, 9 votos en contra). Con el ministro Guillermo Alfonso Jaramillo al frente, el gobierno la reradicó con ajustes menores, pero el <a href="https://forbes.co/2025/12/16/actualidad/se-archiva-la-reforma-a-la-salud-tras-votacion-en-el-senado" target="_blank" rel="noopener">Senado la volvió a hundir el 16 de diciembre de 2025</a>. La reforma nunca se convirtió en ley.</p>
+        <p>Ante el bloqueo legislativo, <a href="https://www.elnuevosiglo.com.co/nacion/la-reforma-la-salud-que-no-fue-pero-implosiono-al-sistema" target="_blank" rel="noopener">el gobierno intentó gobernar el sistema por decreto</a>: giro directo a hospitales excluyendo a las EPS (uno de esos decretos fue suspendido por el Consejo de Estado por invadir la competencia del Congreso) y, ya en la recta final, un <a href="https://www.lafm.com.co/sociedad/minsalud-salud-dineros-eps-unidad-pago-capitacion-aumento-deudas-crisis-medicamentos-406893" target="_blank" rel="noopener">decreto del 4 de agosto de 2026 que subió el giro directo mínimo de la UPC del 80 % al 90 %</a>, tres días antes de entregar el poder.</p>
+        <p>La Superintendencia de Salud <a href="https://www.elcolombiano.com/colombia/salud/quienes-son-interventores-estan-manejando-eps-intervenidas-gobierno-gustavo-petro-NG28953907" target="_blank" rel="noopener">intervino 8 EPS entre 2024 y 2025</a> — Nueva EPS, Famisanar, SOS, Coosalud, Emssanar, Capresoca, Savia Salud y Asmet Salud (la intervención a Sanitas, en abril de 2024, fue revertida por orden judicial) — que llegaron a cubrir cerca de 23 millones de afiliados. Al cierre del gobierno quedaban <strong>7 EPS intervenidas</strong>, con una deuda del sistema de <strong>$41,5 billones</strong> y cerca de 10 millones de PQR y 1 millón de tutelas en salud acumuladas en el cuatrienio.</p>
+      </div>
+    </details>
+
+    <details class="health-card esp" open>
+      <summary>
+        <span class="chevron"></span>
+        <span><span class="health-kicker">Normatividad</span><span class="health-who">Gobierno De la Espriella (2026– )</span></span>
+      </summary>
+      <div class="health-body">
+        <p><a href="https://www.infobae.com/colombia/2026/08/03/asi-esta-conformado-el-gabinete-de-abelardo-de-la-espriella-quienes-son-los-18-ministros-y-sus-perfiles/" target="_blank" rel="noopener">Ana María Vesga</a>, expresidenta del gremio de EPS del régimen contributivo (Acemi), asumió el Ministerio de Salud y anunció un <a href="https://www.elcolombiano.com/colombia/ana-maria-vesga-plan-choque-ministerio-de-salud-eps-upc-DM39535457" target="_blank" rel="noopener">"plan de choque"</a> centrado en garantizar medicamentos y hacerle "alta cirugía" a las EPS intervenidas para definir cuáles son viables.</p>
+        <p>Sobre la <a href="https://www.semana.com/salud/articulo/que-pasara-con-nueva-eps-en-el-gobierno-de-de-la-espriella-minsalud-designada-responde/202645/" target="_blank" rel="noopener">Nueva EPS</a> (12 millones de afiliados), el gobierno descartó liquidarla, pero anticipó que reducirá su número de usuarios por inviabilidad financiera de mantenerlos a todos bajo un solo operador; una eventual capitalización queda sujeta a un análisis posterior de Hacienda y la Supersalud.</p>
+        <p>La ministra <a href="https://www.valoraanalitik.com/nueva-ministra-de-salud-confirma-que-subira-el-pago-directo-a-las-eps-en-colombia-habria-cambios-en-la-upc/" target="_blank" rel="noopener">confirmó que buscará subir los pagos directos a las EPS y revisar al alza la UPC</a>. El enfoque declarado es "no ideológico" — <a href="https://www.noticiasrcn.com/colombia/promesas-de-de-la-espriella-en-salud-y-educacion-1048354" target="_blank" rel="noopener">"corregir lo necesario, recuperar lo deteriorado, fortalecer lo que sirva"</a> — y hasta el corte de esta página no se ha radicado un proyecto de reforma estructural al sistema. El gobierno hereda 7 EPS intervenidas con 23,1 millones de afiliados y una deuda de $41,5 billones.</p>
+      </div>
+    </details>
+
+    <details class="health-card petro" open>
+      <summary>
+        <span class="chevron"></span>
+        <span><span class="health-kicker">Presupuesto</span><span class="health-who">Gobierno Petro (2022–2026)</span></span>
+      </summary>
+      <div class="health-body">
+        <p>El <a href="https://www.infobae.com/america/inhouse/2026/07/24/el-presupuesto-de-la-salud-en-colombia-crecio-60-en-cuatro-anos-y-alcanzara-una-cifra-record-en-2026/" target="_blank" rel="noopener">gasto total del sistema de salud</a> pasó de cerca de $62,4 billones en 2022 a un estimado de $100,1 billones en 2026 — un alza acumulada reportada <a href="https://www.portafolio.co/economia/gobierno/gobierno-aumenta-51-4-el-presupuesto-en-salud-entre-2022-y-2026-y-dice-que-redujo-brecha-entre-regimenes-de-la-upc-485530" target="_blank" rel="noopener">entre 51 % y 60 % en cuatro años</a>, equivalente a cerca del 20 % del Presupuesto General de la Nación 2026.</p>
+        <p>Solo en <a href="https://www.presidencia.gov.co/prensa/Paginas/Incremento-de-la-UPC-para-2026-supera-los-11-6-billones-de-pesos-251231.aspx" target="_blank" rel="noopener">UPC</a>, el incremento para 2026 superó los $11,6 billones frente a 2025, con alzas diferenciadas: +9,03 % nominal en el régimen contributivo y +16,49 % nominal en el subsidiado. La <a href="https://www.minsalud.gov.co/Comunicaciones/noticias/2026/Paginas/gonierno-a-girado-mas-de-34-billones-de-upc.aspx" target="_blank" rel="noopener">Adres giró más de $34,9 billones</a> en los primeros meses de 2026 (~$10 billones mensuales en promedio).</p>
+        <p>Pese al aumento nominal, los gremios de EPS (Acemi, Gestarsalud) insistieron durante todo el gobierno en que la UPC seguía por debajo del costo real de la atención — el argumento central detrás de la crisis financiera y las intervenciones descritas arriba.</p>
+      </div>
+    </details>
+
+    <details class="health-card esp" open>
+      <summary>
+        <span class="chevron"></span>
+        <span><span class="health-kicker">Presupuesto</span><span class="health-who">Gobierno De la Espriella (2026– )</span></span>
+      </summary>
+      <div class="health-body">
+        <p>El 27 de agosto de 2026 el gobierno <a href="https://www.elcolombiano.com/negocios/presupuesto-2027-gobierno-de-la-espriella-MA40370268" target="_blank" rel="noopener">radicó su primer Presupuesto General de la Nación (2027)</a> por $634,9 billones, $59,3 billones más que el de Petro para 2026 ($575,6 billones) — un incremento explicado sobre todo por el servicio de la deuda (+54,7 %), mientras la inversión total del presupuesto cae 2,8 %.</p>
+        <p>El presupuesto específico del <a href="https://www.elespectador.com/salud/el-nuevo-proyecto-de-presupuesto-para-2027-recorta-los-recursos-para-inversion-en-salud/" target="_blank" rel="noopener">Ministerio de Salud para 2027 es de $77,06 billones</a>, apenas 1,52 % más que en 2026 ($75,91 billones) — pero con una caída de casi 25 % en el rubro de inversión (–$543.066 millones) frente a lo aprobado el año anterior.</p>
+        <p>Los recortes más marcados: salud pública, aseguramiento en salud y fortalecimiento institucional (este último con una reducción del 50 % frente a la propuesta inicial). La Superintendencia de Salud pierde 8,66 % de su presupuesto (–$48.727 millones). El propio Ministerio de Hacienda reconoció que el presupuesto 2027 se vio afectado por gastos extraordinarios, lo que ayuda a explicar la presión sobre el gasto social.</p>
+      </div>
+    </details>
+
+  </div>
+
+  <section class="notes" id="fuentes">
+    <details class="panel">
+      <summary><span class="chevron"></span>Fuentes</summary>
+      <div class="panel-body">
+        <span class="sources-group-label">Gabinete</span>
+        <ul class="sources">
+          <li><a href="https://cnnespanol.cnn.com/2026/06/21/colombia/live-news/segunda-vuelta-elecciones-presidenciales-resultado-cepeda-espriella-orix" target="_blank" rel="noopener">CNN — Resultado segunda vuelta 2026</a></li>
+          <li><a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/resultados-segunda-vuelta-presidencial-2026-siga-el-minuto-a-minuto-del-preconteo-de-la-registraduria-nacional-3565893" target="_blank" rel="noopener">El Tiempo — Resultados segunda vuelta</a></li>
+          <li><a href="https://www.infobae.com/colombia/2026/08/08/abelardo-de-la-espriella-posesiono-18-ministros-de-su-gabinete-fue-en-un-acto-privado-en-el-batallon-pichincha-de-cali/" target="_blank" rel="noopener">Infobae — Posesión de los 18 ministros</a></li>
+          <li><a href="https://www.infobae.com/colombia/2026/08/03/asi-esta-conformado-el-gabinete-de-abelardo-de-la-espriella-quienes-son-los-18-ministros-y-sus-perfiles/" target="_blank" rel="noopener">Infobae — Perfiles de los 18 ministros de De la Espriella</a></li>
+          <li><a href="https://www.eltiempo.com/politica/abelardo-de-la-espriella/abelardo-de-la-espriella-posesiono-a-los-18-ministros-que-lo-acompanaran-durante-su-administracion-como-nuevo-presidente-de-colombia-3576987" target="_blank" rel="noopener">El Tiempo — Gabinete completo De la Espriella</a></li>
+          <li><a href="https://www.infobae.com/colombia/2026/08/06/revelan-la-ultima-foto-oficial-de-gustavo-petro-con-su-gabinete-en-la-casa-de-narino-antes-de-dejar-la-presidencia/" target="_blank" rel="noopener">Infobae — Última foto del gabinete Petro</a></li>
+          <li><a href="https://www.larepublica.co/especiales/la-calificacion-de-los-ministros-de-petro/el-gobierno-petro-termina-su-mandato-con-65-ministros-y-140-viceministros-4439651" target="_blank" rel="noopener">La República — 65 ministros y 140 viceministros</a></li>
+          <li><a href="https://www.infobae.com/colombia/2026/07/07/un-record-sin-precedentes-gustavo-petro-cambio-de-ministro-cada-21-dias-en-promedio/" target="_blank" rel="noopener">Infobae — Un ministro cada 21 días</a></li>
+          <li><a href="https://laopinion.co/politica/asi-va-el-empalme-entre-benedetti-y-rodrigo-lara-en-el-ministerio-del-interior" target="_blank" rel="noopener">La Opinión — Empalme Interior: Benedetti / Lara</a></li>
+          <li><a href="https://www.infobae.com/colombia/2026/07/09/cielo-rusinque-sera-la-ministra-encargada-de-justicia-tras-la-renuncia-de-jorge-ivan-cuervo-confirmo-la-presidencia/" target="_blank" rel="noopener">Infobae — Cielo Rusinque, Justicia (e)</a></li>
+          <li><a href="https://www.infobae.com/colombia/2026/07/01/martha-carvajalino-renuncio-al-ministerio-de-agricultura-a-poco-mas-de-un-mes-del-final-del-gobierno-petro-este-es-el-motivo/" target="_blank" rel="noopener">Infobae — Renuncia Carvajalino, Agricultura</a></li>
+          <li><a href="https://www.infobae.com/colombia/2026/08/01/petro-nombro-a-edwin-palma-actual-ministro-de-minas-como-ministro-del-trabajo-y-de-vivienda-tres-ministerios-a-cargo-de-una-misma-persona/" target="_blank" rel="noopener">Infobae — Edwin Palma, tres carteras</a></li>
+          <li><a href="https://www.eltiempo.com/amp/politica/gobierno/patricia-duque-cruz-renuncia-al-ministerio-del-deporte-oscar-albeiro-figueroa-asume-el-cargo-de-forma-interina-3569091" target="_blank" rel="noopener">El Tiempo — Óscar Albeiro Figueroa, Deporte (e)</a></li>
+          <li><a href="https://www.infobae.com/colombia/2025/09/17/petro-acepto-la-renuncia-de-juan-carlos-florian-como-ministro-de-igualdad-angie-lizeth-rodriguez-fajardo-fue-encargada/" target="_blank" rel="noopener">Infobae — Angie Rodríguez, Igualdad (e)</a></li>
+          <li><a href="https://www.infobae.com/colombia/2026/08/14/abelardo-de-la-espriella-designo-al-pastor-cristiano-john-milton-rodriguez-para-liquidar-el-ministerio-de-la-igualdad/" target="_blank" rel="noopener">Infobae — Liquidación de MinIgualdad</a></li>
+          <li><a href="https://www.infobae.com/colombia/2026/07/07/elsa-noguera-esta-es-la-trayectoria-de-la-economista-que-llegara-al-ministerio-de-transporte/" target="_blank" rel="noopener">Infobae — Elsa Noguera, Transporte</a></li>
+          <li><a href="https://www.bloomberglinea.com/latinoamerica/colombia/hoja-de-vida-y-quien-es-paola-holguin-ministra-de-cultura-de-abelardo-de-la-espriella/" target="_blank" rel="noopener">Bloomberg Línea — Paola Holguín, Cultura</a></li>
+          <li><a href="https://www.elespectador.com/educacion/quien-es-viviane-morales-la-ministra-de-educacion-que-nombro-abelardo-de-la-espriella/" target="_blank" rel="noopener">El Espectador — Viviane Morales, Educación</a></li>
+        </ul>
+        <span class="sources-group-label">Salud</span>
+        <ul class="sources">
+          <li><a href="https://www.elpais.com.co/colombia/reforma-a-la-salud-se-hundio-en-el-senado-nueva-derrota-del-gobierno-petro-0345.html" target="_blank" rel="noopener">El País — Primer hundimiento reforma a la salud (abr. 2024)</a></li>
+          <li><a href="https://forbes.co/2025/12/16/actualidad/se-archiva-la-reforma-a-la-salud-tras-votacion-en-el-senado" target="_blank" rel="noopener">Forbes Co — Segundo hundimiento (dic. 2025)</a></li>
+          <li><a href="https://www.elnuevosiglo.com.co/nacion/la-reforma-la-salud-que-no-fue-pero-implosiono-al-sistema" target="_blank" rel="noopener">El Nuevo Siglo — Cronología y decretos suspendidos</a></li>
+          <li><a href="https://www.elcolombiano.com/colombia/salud/quienes-son-interventores-estan-manejando-eps-intervenidas-gobierno-gustavo-petro-NG28953907" target="_blank" rel="noopener">El Colombiano — Lista de EPS intervenidas</a></li>
+          <li><a href="https://www.lafm.com.co/sociedad/minsalud-salud-dineros-eps-unidad-pago-capitacion-aumento-deudas-crisis-medicamentos-406893" target="_blank" rel="noopener">LaFM — Decreto giro directo al 90 % (ago. 2026)</a></li>
+          <li><a href="https://www.infobae.com/america/inhouse/2026/07/24/el-presupuesto-de-la-salud-en-colombia-crecio-60-en-cuatro-anos-y-alcanzara-una-cifra-record-en-2026/" target="_blank" rel="noopener">Infobae — Presupuesto de salud creció 60 % en 4 años</a></li>
+          <li><a href="https://www.portafolio.co/economia/gobierno/gobierno-aumenta-51-4-el-presupuesto-en-salud-entre-2022-y-2026-y-dice-que-redujo-brecha-entre-regimenes-de-la-upc-485530" target="_blank" rel="noopener">Portafolio — Presupuesto de salud +51,4 % 2022–2026</a></li>
+          <li><a href="https://www.presidencia.gov.co/prensa/Paginas/Incremento-de-la-UPC-para-2026-supera-los-11-6-billones-de-pesos-251231.aspx" target="_blank" rel="noopener">Presidencia — Incremento UPC 2026</a></li>
+          <li><a href="https://www.minsalud.gov.co/Comunicaciones/noticias/2026/Paginas/gonierno-a-girado-mas-de-34-billones-de-upc.aspx" target="_blank" rel="noopener">MinSalud — Giros Adres 2026</a></li>
+          <li><a href="https://www.elcolombiano.com/colombia/ana-maria-vesga-plan-choque-ministerio-de-salud-eps-upc-DM39535457" target="_blank" rel="noopener">El Colombiano — Plan de choque de Ana María Vesga</a></li>
+          <li><a href="https://www.semana.com/salud/articulo/que-pasara-con-nueva-eps-en-el-gobierno-de-de-la-espriella-minsalud-designada-responde/202645/" target="_blank" rel="noopener">Semana — Futuro de la Nueva EPS</a></li>
+          <li><a href="https://www.valoraanalitik.com/nueva-ministra-de-salud-confirma-que-subira-el-pago-directo-a-las-eps-en-colombia-habria-cambios-en-la-upc/" target="_blank" rel="noopener">Valora Analitik — Vesga y el pago directo a EPS</a></li>
+          <li><a href="https://www.noticiasrcn.com/colombia/promesas-de-de-la-espriella-en-salud-y-educacion-1048354" target="_blank" rel="noopener">Noticias RCN — Promesas y cifras heredadas</a></li>
+          <li><a href="https://www.elcolombiano.com/negocios/presupuesto-2027-gobierno-de-la-espriella-MA40370268" target="_blank" rel="noopener">El Colombiano — Presupuesto 2027, cifras generales</a></li>
+          <li><a href="https://www.elespectador.com/salud/el-nuevo-proyecto-de-presupuesto-para-2027-recorta-los-recursos-para-inversion-en-salud/" target="_blank" rel="noopener">El Espectador — Recorte a inversión en salud 2027</a></li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <footer class="page">
+    Elaborado a partir de fuentes de prensa colombiana (Infobae, El Tiempo, CNN, La República, El Colombiano, El Espectador, Semana, Bloomberg Línea, entre otras) consultadas el 1 de septiembre de 2026. Dado el ritmo de cambios ministeriales y normativos en ambos gobiernos, verifica siempre la fecha del último enlace antes de citar un dato como vigente.
+  </footer>
+
+</div>
+</body>
+</html>
