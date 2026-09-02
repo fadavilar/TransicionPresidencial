@@ -556,6 +556,164 @@
     .wrap{padding:1.6rem 1rem 4rem;}
     .sources{columns:1;}
   }
+
+  /* ---- mind map: salud por gobierno ---- */
+  .mindmap{
+    margin:1.4rem 0 .5rem;
+    text-align:center;
+  }
+  .mm-root{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--bg);
+    font-family:'Source Serif 4', serif;
+    font-weight:700;
+    font-size:1rem;
+    padding:.7rem 1.5rem;
+    border-radius:10px;
+    box-shadow:var(--shadow);
+  }
+  .mm-trunk{
+    width:2px;
+    height:1.6rem;
+    background:var(--line-strong);
+    margin:0 auto;
+  }
+  .mm-branches{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:2.5rem;
+    position:relative;
+    max-width:820px;
+    margin:0 auto;
+  }
+  .mm-branches::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:25%;
+    right:25%;
+    height:2px;
+    background:var(--line-strong);
+  }
+  .mm-branch{
+    flex:1;
+    min-width:0;
+    max-width:380px;
+    padding-top:1.6rem;
+    position:relative;
+  }
+  .mm-branch::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:50%;
+    width:2px;
+    height:1.6rem;
+    background:var(--line-strong);
+  }
+  .mm-person{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:.5rem;
+  }
+  .mm-person img{
+    width:92px;
+    height:92px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--petro);
+    box-shadow:var(--shadow);
+  }
+  .mm-branch.esp .mm-person img{border-color:var(--esp);}
+  .mm-person-name{
+    font-family:'Source Serif 4', serif;
+    font-weight:700;
+    font-size:1.05rem;
+    color:var(--ink);
+  }
+  .mm-person-years{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.7rem;
+    font-weight:400;
+    letter-spacing:.03em;
+    color:var(--ink-faint);
+    margin-top:.15rem;
+  }
+  .mm-stem{
+    width:2px;
+    height:1rem;
+    background:var(--line-strong);
+    margin:0 auto;
+  }
+  .mm-callout{
+    display:inline-block;
+    max-width:280px;
+    background:var(--petro-soft);
+    border:1px solid var(--petro);
+    border-radius:999px;
+    padding:.45rem 1rem;
+    font-size:.84rem;
+    font-weight:600;
+    line-height:1.3;
+  }
+  .mm-callout a{color:var(--petro-ink); text-decoration:none;}
+  .mm-callout a:hover{text-decoration:underline;}
+  .mm-branch.esp .mm-callout{background:var(--esp-soft); border-color:var(--esp);}
+  .mm-branch.esp .mm-callout a{color:var(--esp-ink);}
+  .mm-minister{
+    font-size:.8rem;
+    color:var(--ink-soft);
+    margin:.9rem 0 .3rem;
+  }
+  .mm-minister .mm-label{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.65rem;
+    text-transform:uppercase;
+    letter-spacing:.07em;
+    color:var(--ink-faint);
+    margin-bottom:.15rem;
+  }
+  .mm-minister a{color:var(--link); font-weight:600; text-decoration:none;}
+  .mm-minister a:hover{text-decoration:underline;}
+  .mm-laws{
+    list-style:none;
+    margin:.7rem 0 0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:.5rem;
+    text-align:left;
+  }
+  .mm-laws li{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-left:3px solid var(--petro);
+    border-radius:8px;
+    padding:.5rem .7rem;
+    font-size:.78rem;
+    color:var(--ink-soft);
+    box-shadow:var(--shadow);
+  }
+  .mm-branch.esp .mm-laws li{border-left-color:var(--esp);}
+  .mm-laws a{color:var(--link); font-weight:600; text-decoration:none;}
+  .mm-laws a:hover{text-decoration:underline;}
+  .mm-credit{
+    font-size:.72rem;
+    color:var(--ink-faint);
+    margin-top:1.6rem;
+  }
+  @media (max-width:720px){
+    .mm-branches{flex-direction:column; align-items:center; gap:2.2rem; max-width:380px;}
+    .mm-branches::before{display:none;}
+    .mm-branch{max-width:100%; width:100%; padding-top:0;}
+    .mm-branch::before{display:none;}
+    .mm-trunk{height:1.2rem;}
+  }
 </style>
 </head>
 <body>
@@ -587,6 +745,7 @@
       <a href="#gabinete">↓ Gabinete (19 carteras)</a>
       <a href="#salud">↓ Normatividad y presupuesto de salud</a>
       <a href="#fuentes">↓ Fuentes</a>
+      <a href="#mapa">↓ Mapa mental</a>
     </nav>
     <div class="ctrls">
       <button type="button" id="expandAll" class="ctrl-btn">Expandir todo</button>
@@ -1057,6 +1216,50 @@
       </div>
     </details>
   </section>
+
+  <h2 class="section-title" id="mapa">Mapa mental: salud en la transición</h2>
+  <p class="section-dek">La misma comparación, de un vistazo: quién estuvo al frente de la salud en cada gobierno, la idea central de su gestión y las normas que la definieron.</p>
+
+  <div class="mindmap">
+    <div class="mm-root">Transición presidencial 2026<br>Sector salud</div>
+    <div class="mm-trunk"></div>
+    <div class="mm-branches">
+
+      <div class="mm-branch petro">
+        <div class="mm-person">
+          <img src="img/petro.jpg" alt="Gustavo Petro" loading="lazy">
+          <div><span class="mm-person-name">Gustavo Petro</span><span class="mm-person-years">2022–2026 · Pacto Histórico</span></div>
+        </div>
+        <div class="mm-stem"></div>
+        <div class="mm-callout"><a href="https://www.elnuevosiglo.com.co/nacion/la-reforma-la-salud-que-no-fue-pero-implosiono-al-sistema" target="_blank" rel="noopener">Gobernó el sistema por decreto</a></div>
+        <div class="mm-minister"><span class="mm-label">Ministro de Salud</span><a href="https://en.wikipedia.org/wiki/Guillermo_Alfonso_Jaramillo" target="_blank" rel="noopener">Guillermo Alfonso Jaramillo</a></div>
+        <ul class="mm-laws">
+          <li><a href="https://www.elpais.com.co/colombia/reforma-a-la-salud-se-hundio-en-el-senado-nueva-derrota-del-gobierno-petro-0345.html" target="_blank" rel="noopener">Reforma a la salud</a> — radicada feb. 2023, hundida 2 veces en el Senado</li>
+          <li><a href="https://www.elcolombiano.com/colombia/salud/quienes-son-interventores-estan-manejando-eps-intervenidas-gobierno-gustavo-petro-NG28953907" target="_blank" rel="noopener">8 EPS intervenidas</a> (2024–2025), ~23 millones de afiliados</li>
+          <li><a href="https://www.minsalud.gov.co/Normatividad_Nuevo/Resolucion%20No%202764%20de%202025.pdf" target="_blank" rel="noopener">Resolución 2764/2025</a> — fija el valor de la UPC 2026</li>
+          <li><a href="https://www.minsalud.gov.co/Normatividad_Nuevo/DECRETO%20No.%200930%20DEL%2031%20DE%20JULIO%20DE%202026.pdf" target="_blank" rel="noopener">Decreto 930/2026</a> — giro directo UPC del 80&nbsp;% al 90&nbsp;%</li>
+        </ul>
+      </div>
+
+      <div class="mm-branch esp">
+        <div class="mm-person">
+          <img src="img/delaespriella.jpg" alt="Abelardo De la Espriella" loading="lazy">
+          <div><span class="mm-person-name">Abelardo De la Espriella</span><span class="mm-person-years">2026– </span></div>
+        </div>
+        <div class="mm-stem"></div>
+        <div class="mm-callout"><a href="https://www.elcolombiano.com/colombia/ana-maria-vesga-plan-choque-ministerio-de-salud-eps-upc-DM39535457" target="_blank" rel="noopener">"Plan de choque" para EPS y medicamentos</a></div>
+        <div class="mm-minister"><span class="mm-label">Ministra de Salud</span><a href="https://www.infobae.com/colombia/2026/08/03/asi-esta-conformado-el-gabinete-de-abelardo-de-la-espriella-quienes-son-los-18-ministros-y-sus-perfiles/" target="_blank" rel="noopener">Ana María Vesga Gaviria</a></div>
+        <ul class="mm-laws">
+          <li><a href="https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%20No%201852%20de%202026.pdf" target="_blank" rel="noopener">Resolución 1852/2026</a> — suspende la Resolución 1563 (alto costo)</li>
+          <li><a href="https://www.minsalud.gov.co/Normatividad_Nuevo/Circular%20Externa%20No%200028%20de%202026.pdf" target="_blank" rel="noopener">Circular 0028/2026</a> — EPS y reclamaciones por el desastre nacional</li>
+          <li><a href="https://www.minsalud.gov.co/Normativa/proyactadm/PR%20HISTORIA%20CLINICAAJUSTADO22072026_20260722151143.pdf" target="_blank" rel="noopener">Proyecto de resolución</a> — historia clínica, en consulta pública</li>
+          <li><a href="https://www.elespectador.com/salud/el-nuevo-proyecto-de-presupuesto-para-2027-recorta-los-recursos-para-inversion-en-salud/" target="_blank" rel="noopener">PGN 2027</a> — recorte de ~25&nbsp;% en inversión de salud</li>
+        </ul>
+      </div>
+
+    </div>
+    <p class="mm-credit">Fotos: Gustavo Petro — Departamento Nacional de Planeación (<a href="https://commons.wikimedia.org/wiki/File:Foto_Oficial_Presidente_Gustavo_Petro_(3x4_cropped).jpg" target="_blank" rel="noopener">CC BY 2.0</a>) · Abelardo De la Espriella — dominio público (<a href="https://commons.wikimedia.org/wiki/File:Colombian_Presidential_Candidate_Abelardo_de_la_Espriella_(cropped).jpg" target="_blank" rel="noopener">CC0</a>), vía Wikimedia Commons.</p>
+  </div>
 
   <footer class="page">
     Elaborado a partir de fuentes de prensa colombiana (Infobae, El Tiempo, CNN, La República, El Colombiano, El Espectador, Semana, Bloomberg Línea, entre otras) consultadas el 1 de septiembre de 2026. Dado el ritmo de cambios ministeriales y normativos en ambos gobiernos, verifica siempre la fecha del último enlace antes de citar un dato como vigente.
